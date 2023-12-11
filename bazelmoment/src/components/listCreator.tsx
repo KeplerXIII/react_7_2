@@ -1,34 +1,18 @@
-import { videoListObj, videoListObjList } from '../types/objTypes'
+import { videoListObjList } from '../types/objTypes'
+import { bazelChkecker } from './bazelCreator'
+import { Article, Video } from './contentWrapper'
 
-const Article = ({ title, views }: videoListObj) => (
-  <div className='item item-article'>
-    <h3>
-      <a href='#'>{title}</a>
-    </h3>
-    <p className='views'>Прочтений: {views}</p>
-  </div>
-)
-
-const Video = ({ url, views }: videoListObj) => (
-  <div className='item item-video'>
-    <iframe
-      src={url}
-      frameBorder='0'
-      allow='autoplay; encrypted-media'
-      allowFullScreen
-    ></iframe>
-    <p className='views'>Просмотров: {views}</p>
-  </div>
-)
+const СheckedArticle = bazelChkecker(Article)
+const CheckedVideo = bazelChkecker(Video)
 
 export const List = ({ list }: videoListObjList) => {
   return list.map((item, index) => {
     switch (item.type) {
       case 'video':
-        return <Video {...item} key={index} />
+        return <CheckedVideo {...item} key={index} />
 
       case 'article':
-        return <Article {...item} key={index} />
+        return <СheckedArticle {...item} key={index} />
     }
   })
 }

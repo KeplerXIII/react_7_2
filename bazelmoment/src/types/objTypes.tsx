@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export type videoListObj = {
   type: string
   title?: string
@@ -6,5 +8,9 @@ export type videoListObj = {
 }
 
 export type videoListObjList = {
-    list: videoListObj[]
-  }
+  list: videoListObj[]
+}
+
+export type WrapProps = {
+  children: ReactNode
+}
