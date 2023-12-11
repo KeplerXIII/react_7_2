@@ -2,7 +2,7 @@ import { videoListObjList } from '../types/objTypes'
 import { bazelChkecker } from './bazelCreator'
 import { Article, Video } from './contentWrapper'
 
-const СheckedArticle = bazelChkecker(Article)
+const CheckedArticle = bazelChkecker(Article)
 const CheckedVideo = bazelChkecker(Video)
 
 export const List = ({ list }: videoListObjList) => {
@@ -12,7 +12,7 @@ export const List = ({ list }: videoListObjList) => {
         return <CheckedVideo {...item} key={index} />
 
       case 'article':
-        return <СheckedArticle {...item} key={index} />
+        return <CheckedArticle {...item} key={index} />
     }
   })
 }
